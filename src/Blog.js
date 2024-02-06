@@ -1,5 +1,16 @@
 import { Route, Routes } from 'react-router-dom';
 import styled from 'styled-components';
+import { Header } from './components';
+
+const AppColumn = styled.div`
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	width: 1000px;
+	min-height: 100%;
+	margin: 0 auto;
+	background-color: #fff;
+`;
 
 const Content = styled.div`
 	padding: 120px 0;
@@ -9,12 +20,15 @@ const H2 = styled.h2`
 	text-align: center;
 `;
 
-const Header = () => <div>Шапка</div>;
+
+
 const Footer = () => <div>Футер</div>;
+
+
 
 export const Blog = () => {
 	return (
-		<>
+		<AppColumn>
 			<Header />
 			<Content>
 				<H2>Контент страницы</H2>
@@ -29,7 +43,7 @@ export const Blog = () => {
 				</Routes>
 			</Content>
 			<Footer />
-		</>
+		</AppColumn>
 	);
 };
 // json-server --watch src/db.json --port 3005
