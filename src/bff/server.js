@@ -1,10 +1,15 @@
-import { getUser } from "./get-user";
-import { addUser } from "./add-user";
-import { createSession } from './create-session';
+import { getUser } from './get-user';
+import { addUser } from './add-user';
+import { sessions } from './sessions';
 
 export const server = {
+	async logout(session) {
+		sessions.remove(session);
+	},
 	async authorize(authLogin, authPassword) {
 		const user = await getUser(authLogin);
+
+		console.log(user.id);
 
 		if (!user) {
 			return {
@@ -22,7 +27,12 @@ export const server = {
 
 		return {
 			error: null,
-			res: createSession(user.role_id),
+			res: {
+				id: user.id,
+				login: user.login,
+				role_id: user.role_id,
+				session: sessions.create(user),
+			},
 		};
 	},
 	async register(regLogin, regPassword) {
@@ -33,13 +43,18 @@ export const server = {
 				error: 'Такой логин уже занят',
 				res: null,
 			};
-		};
+		}
 
 		await addUser(regLogin, regPassword);
 
 		return {
 			error: null,
-			res: createSession(user.role_id),
+			res: {
+				id: user.id,
+				login: user.login,
+				role_id: user.role_id,
+				session: sessions.create(user),
+			},
 		};
 	},
 };

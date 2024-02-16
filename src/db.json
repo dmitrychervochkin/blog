@@ -5,7 +5,21 @@
 			"login": "anton",
 			"password": "qwerty123",
 			"registed_at": "2050-09-22",
-			"role_id": "123"
+			"role_id": "0"
+		},
+		{
+			"id": "002",
+			"login": "antony",
+			"password": "qwerty1235",
+			"registed_at": "2050-09-22",
+			"role_id": "1"
+		},
+		{
+			"id": "003",
+			"login": "antonu",
+			"password": "qwerty1234",
+			"registed_at": "2050-09-22",
+			"role_id": "2"
 		}
 	],
 	"roles": [
