@@ -1,5 +1,5 @@
-import { ACTION_TYPE } from "../actions";
-import { ROLE } from "../constants";
+import { ACTION_TYPE } from '../actions';
+import { ROLE } from '../constants';
 
 const initialUserState = {
 	session: null,
@@ -9,12 +9,12 @@ const initialUserState = {
 };
 
 export const userReducer = (state = initialUserState, action) => {
-	switch (action.type){
+	switch (action.type) {
 		case ACTION_TYPE.SET_USER: {
 			return {
 				...state,
 				...action.payload,
-			}
+			};
 		}
 		case ACTION_TYPE.LOGOUT: {
 			return initialUserState;

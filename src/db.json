@@ -1,35 +1,28 @@
 {
   "users": [
     {
-      "id": "001",
-      "login": "dimas228",
-      "password": "qwerty123",
-      "registed_at": "2050-09-22",
-      "role_id": 0
-    },
-    {
-      "id": "5916",
-      "login": "lizzka",
+      "id": "fde9",
+      "login": "dimas",
       "password": "qweqwe",
-      "registed_at": "2058-07-09 03:34",
-      "role_id": 2
+      "registered_at": "2038-02-16 08:56",
+      "role_id": 0
     }
   ],
   "roles": [
     {
-      "id": 0,
+      "id": "0",
       "name": "Администратор"
     },
     {
-      "id": 1,
+      "id": "1",
       "name": "Модератор"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Читатель"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Гость"
     }
   ],

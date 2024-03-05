@@ -3,7 +3,7 @@ import { useStore } from 'react-redux';
 
 export const useResetForm = (reset) => {
 	const store = useStore();
-	
+
 	useEffect(() => {
 		let currentWasLogout = store.getState().app.wasLogout;
 

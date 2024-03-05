@@ -8,6 +8,11 @@ export const sessions = {
 		return hash;
 	},
 	remove(hash) {
-		delete this.list[hash]
+		delete this.list[hash];
+	},
+	access(hash, accessRoles) {
+		const user = sessions.list[hash];
+
+		return !!user && accessRoles.includes(user.roleId);
 	},
 };
