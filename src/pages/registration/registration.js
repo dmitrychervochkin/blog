@@ -4,7 +4,7 @@ import { Navigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { server } from '../../bff/server';
+import { server } from '../../bff';
 import { AuthFormError, Button, H2, Input } from '../../components';
 import { setUser } from '../../actions';
 import styled from 'styled-components';
@@ -59,6 +59,7 @@ const RegistrationContainer = ({ className }) => {
 				return;
 			}
 			dispatch(setUser(res));
+			sessionStorage.setItem('userData', JSON.stringify(res));
 		});
 	};
 
