@@ -37,7 +37,7 @@ const CommentsConteiner = ({ className, comments, postId }) => {
 
 			<div className="comments">
 				{comments.map(({ id, author, content, publishedAt }) => (
-					<Comment id={id} key={id} author={author} content={content} publishedAt={publishedAt} />
+					<Comment id={id} key={id} postId={postId} author={author} content={content} publishedAt={publishedAt} />
 				))}
 			</div>
 		</div>
