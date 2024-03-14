@@ -40,8 +40,12 @@ export const Footer = styled(FooterContainer)`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	position: fixed;
+
+	bottom: 0;
+
 	width: 1000px;
-	height: 120px;
+	height: 80px;
 	padding: 20px 40px;
 	box-shadow: 0 2px 17px #000;
 	background-color: #fff;

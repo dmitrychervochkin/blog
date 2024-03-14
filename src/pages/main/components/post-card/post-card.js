@@ -29,8 +29,8 @@ export const PostCard = styled(PostCardContainer)`
 	width: 282px;
 	display: flex;
 	flex-direction: column;
-	margin: 19px;
 	border: 2px solid black;
+	margin: 5px 20px 5px 18px;
 
 	& .img {
 		display: block;
@@ -53,7 +53,7 @@ export const PostCard = styled(PostCardContainer)`
 	& .post-card-info {
 		display: flex;
 		justify-content: space-between;
-		margin-top: 20px;
+		margin-top: 10px;
 	}
 
 	& .published-at {
