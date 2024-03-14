@@ -1,6 +1,9 @@
 import { transformPost } from '../transformers';
 
-export const getPosts = () =>
-	fetch('http://localhost:3005/posts')
-		.then((loadedUPost) => loadedUPost.json())
-		.then((loadedUPost) => loadedUPost && loadedUPost.map(transformPost));
+export const getPosts = (page, limit) =>
+	fetch(`http://localhost:3005/posts?_page=${page}&_per_page=${limit}`)
+		.then((loadedPosts) => loadedPosts.json())
+		.then((loadedPosts) => ({
+			posts: loadedPosts.data && loadedPosts.data.map(transformPost),
+			links: loadedPosts.pages,
+		}));

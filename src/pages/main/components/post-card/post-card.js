@@ -45,12 +45,15 @@ export const PostCard = styled(PostCardContainer)`
 
 	& h4 {
 		margin: 0;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
 	}
 
 	& .post-card-info {
 		display: flex;
 		justify-content: space-between;
-		margin-top: 5px;
+		margin-top: 20px;
 	}
 
 	& .published-at {
