@@ -1,39 +1,45 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Icon } from '../../../../components';
 import { Comment } from './components';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectUserId } from '../../../../selectors';
+import { selectUserId, selectUserRole } from '../../../../selectors';
 import { useServerRequest } from '../../../../hooks';
 import { addCommentAsync } from '../../../../actions/add-comment-async';
+import { ROLE } from '../../../../constants';
 
 const CommentsConteiner = ({ className, comments, postId }) => {
 	const [newComment, setNewComment] = useState();
 	const userId = useSelector(selectUserId);
 	const dispatch = useDispatch();
 	const requestServer = useServerRequest();
+	const userRole = useSelector(selectUserRole);
 
 	const onNewCommentAdd = (requestServer, postId, userId, content) => {
 		dispatch(addCommentAsync(requestServer, postId, userId, content));
 		setNewComment('');
 	};
 
+	const isGuest = userRole === ROLE.GUEST;
+
 	return (
 		<div className={className}>
-			<div className="new-comment">
-				<textarea
-					name="comment"
-					value={newComment}
-					placeholder="Комментарий..."
-					onChange={({ target }) => setNewComment(target.value)}
-				></textarea>
-				<Icon
-					id="fa-paper-plane-o"
-					margin="0 0 0 10px"
-					size="18px"
-					onClick={() => onNewCommentAdd(requestServer, postId, userId, newComment)}
-				/>
-			</div>
+			{!isGuest && (
+				<div className="new-comment">
+					<textarea
+						name="comment"
+						value={newComment}
+						placeholder="Комментарий..."
+						onChange={({ target }) => setNewComment(target.value)}
+					></textarea>
+					<Icon
+						id="fa-paper-plane-o"
+						margin="0 0 0 10px"
+						size="18px"
+						onClick={() => onNewCommentAdd(requestServer, postId, userId, newComment)}
+					/>
+				</div>
+			)}
 
 			<div className="comments">
 				{comments.map(({ id, author, content, publishedAt }) => (
@@ -67,4 +73,5 @@ export const Comments = styled(CommentsConteiner)`
 		resize: none;
 		font-size: 18px;
 	}
+	margin-bottom: 80px;
 `;
