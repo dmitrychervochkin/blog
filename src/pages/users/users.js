@@ -61,7 +61,7 @@ const UsersContainer = ({ className }) => {
 							id={id}
 							registeredAt={registeredAt}
 							roleId={roleId}
-							roles={roles.filter(({ id: roleId }) => Number(roleId) !== ROLE.GUEST)}
+							roles={roles.filter(({ id: roleId }) => roleId !== ROLE.GUEST)}
 							onUserRemove={() => onUserRemove(id)}
 						/>
 					))}

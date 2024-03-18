@@ -5,6 +5,7 @@ import { useServerRequest } from '../../../../../../hooks';
 import { CLOSE_MODAL, openModal, removeCommentAsync } from '../../../../../../actions';
 import { selectUserRole } from '../../../../../../selectors';
 import { ROLE } from '../../../../../../constants';
+import PropTypes from 'prop-types';
 
 const CommentContainer = ({ className, id, postId, author, publishedAt, content }) => {
 	const dispatch = useDispatch();
@@ -72,3 +73,11 @@ export const Comment = styled(CommentContainer)`
 		justify-content: space-between;
 	}
 `;
+
+Comment.propTypes = {
+	id: PropTypes.string.isRequired,
+	postId: PropTypes.string.isRequired,
+	author: PropTypes.string.isRequired,
+	publishedAt: PropTypes.string.isRequired,
+	content: PropTypes.string.isRequired,
+};
